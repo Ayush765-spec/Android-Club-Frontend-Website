@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Club VIT Bhopal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:nth-child(1),
+        .project-item:nth-child(4) {
+            grid-column: span 1;
+        }
+
+        .project-item:nth-child(2),
+        .project-item:nth-child(5) {
+            grid-column: span 1;
+        }
+
+        .project-item:nth-child(3),
+        .project-item:nth-child(6) {
+            grid-column: span 1;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 20px;
+            color: white;
+            transform: translateY(60%);
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-overlay h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-overlay p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .team-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .team-tags span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .page3 h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            padding-top: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 30px;
+            }
+
+            .project-item {
+                height: 350px;
+            }
+
+            .project-item:nth-child(1),
+            .project-item:nth-child(2),
+            .project-item:nth-child(3),
+            .project-item:nth-child(4),
+            .project-item:nth-child(5),
+            .project-item:nth-child(6) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .project-item {
+                height: 300px;
+            }
+
+            .project-item:nth-child(1),
+            .project-item:nth-child(2),
+            .project-item:nth-child(3),
+            .project-item:nth-child(4),
+            .project-item:nth-child(5),
+            .project-item:nth-child(6) {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor"></div>
+
+    <div id="nav">
+        <div class="nav-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="Android Logo"
+                style="height: 30px; margin-right: 10px;">
+            <span>ANDROID CLUB</span>
+        </div>
+        <div id="nav-part2">
+            <h4 onclick="scrollToSection('#home')">Home</h4>
+            <h4 onclick="scrollToSection('#about')">About</h4>
+            <h4 onclick="scrollToSection('#projects')">Projects</h4>
+            <h4 onclick="scrollToSection('#events')">Events</h4>
+            <h4 onclick="scrollToSection('#contact')">Contact</h4>
+        </div>
+        <div id="nav-part3">
+            <div id="circle"></div>
+        </div>
+    </div>
+
+    <div class="main">
+        <!-- Page 1: Hero -->
+        <div class="page1" id="home">
+            <h1>Innovate the</h1>
+            <h2>Future</h2>
+            <video autoplay muted loop src="https://duo-studio.co/assets/home/Duo%20Reel--Desktop-reduced.mp4"></video>
+        </div>
+
+        <!-- Page 2: About -->
+        <div class="page2" id="about">
+            <h1>We are Android Club,</h1>
+            <div class="page2-container">
+                <div class="page2-left">
+                    <h2>A COMMUNITY DEDICATED TO BUILDING THE NEXT GENERATION OF DEVELOPERS</h2>
+                </div>
+                <div class="page2-right">
+                    <p>We empower students with the skills to build world-class applications. From mastering Kotlin to
+                        designing intuitive UIs, we provide the platform to learn, collaborate, and innovate. Join us to
+                        turn your ideas into reality.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Projects -->
+        <div class="page3" id="projects">
+            <h1>Featured Projects</h1>
+            <div class="projects-container">
+                <!-- Project 1: Campus Connect -->
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80"
+                        alt="Campus Connect">
+                    <div class="project-overlay">
+                        <h3>Campus Connect</h3>
+                        <p>A centralized platform for student resources, event updates, and campus navigation.</p>
+                        <div class="team-tags">
+                            <span>Rohan Gupta</span>
+                            <span>Priya Singh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Event Manager -->
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80"
+                        alt="Event Manager">
+                    <div class="project-overlay">
+                        <h3>Event Manager</h3>
+                        <p>Streamlining club event registrations and feedback with a seamless mobile app.</p>
+                        <div class="team-tags">
+                            <span>Vikram Singh</span>
+                            <span>Ananya Das</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Study Buddy -->
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80"
+                        alt="Study Buddy">
+                    <div class="project-overlay">
+                        <h3>Study Buddy</h3>
+                        <p>Find peer study groups and share notes instantly based on your courses.</p>
+                        <div class="team-tags">
+                            <span>Ishita Sharma</span>
+                            <span>Arjun Kumar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: FitTrack -->
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=800&q=80" alt="FitTrack">
+                    <div class="project-overlay">
+                        <h3>FitTrack</h3>
+                        <p>A health monitoring app integrating with wearable devices for real-time analytics.</p>
+                        <div class="team-tags">
+                            <span>Aarav Patel</span>
+                            <span>Neha Verma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: AI Chatbot -->
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80" alt="AI Chatbot">
+                    <div class="project-overlay">
+                        <h3>AI Chatbot</h3>
+                        <p>An intelligent assistant for answering student queries about campus life 24/7.</p>
+                        <div class="team-tags">
+                            <span>Rohan Gupta</span>
+                            <span>Ananya Das</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Smart Home -->
+                <div class="project-item">
+                    <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=800&q=80" alt="Smart Home">
+                    <div class="project-overlay">
+                        <h3>Smart Home</h3>
+                        <p>IoT-based automation system for controlling dorm room appliances via app.</p>
+                        <div class="team-tags">
+                            <span>Vikram Singh</span>
+                            <span>Ishita Sharma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: Events / Strategy -->
+        <div class="page4" id="events">
+            <div class="elem">
+                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" alt="Event 1">
+                <div class="text-div">
+                    <h1>Hackathons</h1>
+                    <h1>Hackathons</h1>
+                </div>
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="Event 1">
+            </div>
+            <div class="elem">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80" alt="Event 2">
+                <div class="text-div">
+                    <h1>Workshops</h1>
+                    <h1>Workshops</h1>
+                </div>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" alt="Event 2">
+            </div>
+            <div class="elem">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Event 3">
+                <div class="text-div">
+                    <h1>Meetups</h1>
+                    <h1>Meetups</h1>
+                </div>
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80" alt="Event 3">
+            </div>
+        </div>
+
+        <!-- Page 5: Team / Mentions -->
+        <div class="page5">
+            <h2>Core Team</h2>
+            <div class="box" data-image="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&q=80">
+                <h3>Aarav Patel</h3>
+                <h4>President</h4>
+            </div>
+            <div class="box" data-image="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80">
+                <h3>Ishita Sharma</h3>
+                <h4>Vice President</h4>
+            </div>
+            <div class="box" data-image="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=500&q=80">
+                <h3>Rohan Gupta</h3>
+                <h4>Tech Lead</h4>
+            </div>
+            <div class="box" data-image="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&q=80">
+                <h3>Vikram Singh</h3>
+                <h4>Event Manager</h4>
+            </div>
+
+        </div>
+
+        <!-- Page 6: Contact -->
+        <div class="page6" id="contact">
+            <div class="contact-container">
+                <h1>Get in Touch</h1>
+                <div class="contact-content">
+                    <div class="contact-left">
+                        <p>Have an idea? Want to join? Or just want to say hi?</p>
+                        <div class="contact-details">
+                            <p><strong>Email:</strong> androidclub@vitb.tech</p>
+                            <p><strong>Location:</strong> VIT Bhopal University</p>
+                        </div>
+                        <div class="socials">
+                            <a href="#">Instagram</a>
+                            <a href="#">LinkedIn</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="contact-right">
+                        <form>
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your Email" required>
+                            <textarea placeholder="Message" rows="4" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <h3>Android Club VIT Bhopal</h3>
+                <p>&copy; 2025 All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+        integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
